@@ -1,0 +1,26 @@
+!!! 5
+%html
+  %head
+    %title RFF Converter
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .header
+      = image_tag "rff-converter-logo.png"
+    .summary
+      = yield :summary
+    .formbox
+      = yield
+    .additional
+      = yield :additional
+    .footer
+      .line
+        RFF Converter &copy; 2014 by Phitherek_
+      .line
+        Powered by
+        = link_to "rff", "https://rubygems.org/gems/rff"
+        Ruby gem &copy; 2014 by Phitherek_
+      .line
+        Powered by
+        = link_to "Ruby on Rails", "http://www.rubyonrails.org"
