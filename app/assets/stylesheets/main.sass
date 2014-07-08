@@ -2,11 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+=horiz-lgradient($startcol, $endcol)
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, from($startcol), to($endcol))
+  background-image: -moz-linear-gradient(0% 0% 0deg,$startcol, $endcol)
+  background-image: linear-gradient(to right, $startcol, $endcol)
+=vert-lgradient($startcol, $endcol)
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($startcol), to($endcol))
+  background-image: -moz-linear-gradient(0% 0% 270deg,$startcol, $endcol)
+  background-image: linear-gradient(to bottom, $startcol, $endcol)
+=width-transition($time)
+  -moz-transition: width $time ease
+  -o-transition: width $time ease
+  -webkit-transition: width $time ease
+  transition: width $time ease
+
 .header
-    text-align: center
+  text-align: center
 .footer
-    border-top: solid 1px #cccccc
-    text-align: center
+  border-top: solid 1px #cccccc
+  text-align: center
 .formbox
-    text-align: center
-    border: solid 3px #000000
+  text-align: center
+  border: solid 3px #000000
+.progress
+  height: 20px
+  width: 70%
+  border: solid 1px #000
+  float: left
+  .bar
+    height: 18px
+    +horiz-lgradient(#FF0000, #0000FF)
+    +width-transition(1s)
+    margin: 1px
+.progress_percentage
+  float: left
+  padding-top: 2px
+.pbcontainer
+  overflow: hidden
+.pbcontainer.conversion
+  position: relative
+  left: 15%

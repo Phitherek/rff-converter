@@ -1,0 +1,6 @@
+= content_for :summary do
+  Your file is now being converted. When the conversion succeeds you will have an option to download the converted files as a ZIP package. This package will stay on the server for 7 days and then will be automatically deleted.
+%h1#form_title Please wait, conversion in progress...
+= render partial: "main/progressbar", locals: {barclass: "conversion"}
+= content_for :additional do
+  = form_tag(update_key_path(@conv.key), id: :afterconversion_form)

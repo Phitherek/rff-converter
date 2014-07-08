@@ -1,0 +1,18 @@
+= content_for :summary do
+  %p Welcome to RFF Converter, a Ruby on Rails based most-to-HTML5 media converter. Just use the form below to upload an audio or video file and this converter will - sequentially or concurrently, depending on your choice - convert it to OGG, WAV and MP3 formats (if it' s an audio file) or OGV, MP4 and WEBM formats (if it' s a video file). If the conversion succeeds it will provide a ZIP package with converted files - then you can use them to source an audio or video element on your HTML5 page.
+%h1#form_title Input your file to begin the conversion:
+.form_space
+  = form_tag(conversion_path, multipart: true) do
+    .formrow  
+      = label_tag :type, "File type:"
+      = select_tag :type, options_for_select(conversion_types_for_select)
+    .formrow
+      = label_tag :processing, "Processing mode:"
+      = select_tag :processing, options_for_select(processing_types_for_select)
+    .formrow
+      = label_tag :original_file, "Select file:"
+      = file_field_tag :original_file
+    .formrow
+      = token_tag
+      = submit_tag "Begin"
+.upload_message

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -54,5 +55,10 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  root :to => "main#blank"
+  root :to => "main#welcome"
+  
+  post "/conversion", :to => "main#conversion"
+  get "/:key", :to => "keys#show", :as => :key
+  post "/:key", :to => "keys#update", :as => :update_key
+  get "/blank", :to => "main#blank"
 end
