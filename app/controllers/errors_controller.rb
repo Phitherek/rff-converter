@@ -1,7 +1,9 @@
 class ErrorsController < ApplicationController
-  def notfound
-  end
-
-  def forbidden
-  end
+	layout :error
+	
+	def notfound
+	end
+	
+	def forbidden
+	end
 end

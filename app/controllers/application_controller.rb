@@ -6,6 +6,14 @@ class ApplicationController < ActionController::Base
   
   before_filter :load_stats
   
+  def render_error error
+    if error.to_s == "forbidden"
+      render "errors/forbidden", :status => :forbidden, :layout => "error" and return
+    elsif error.to_s == "notfound"
+      render "errors/notfound", :status => :not_found, :layout => "error" and return
+    end
+  end
+  
   protected
   
   def load_stats

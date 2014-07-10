@@ -15,5 +15,8 @@ class KeysController < ApplicationController
   
   def find_object
       @obj = Conversion.find_by_key(params[:key])
+      if @obj.nil?
+          render_error :notfound
+      end
   end
 end
