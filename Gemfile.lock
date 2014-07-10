@@ -44,6 +44,10 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     connection_pool (2.0.0)
+    daemons (1.1.9)
+    daemons-rails (1.2.1)
+      daemons
+      multi_json (~> 1.0)
     erubis (2.7.0)
     execjs (2.2.1)
     ffi (1.9.3)
@@ -152,6 +156,7 @@ PLATFORMS
 DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
+  daemons-rails
   forgery
   haml-rails
   jbuilder (~> 2.0)

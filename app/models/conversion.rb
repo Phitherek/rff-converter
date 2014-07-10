@@ -1,4 +1,5 @@
 class Conversion < ActiveRecord::Base
+    require 'fileutils'
     belongs_to :key
     mount_uploader :original_file, MediaUploader
     validates :original_file, :presence => true
@@ -12,6 +13,8 @@ class Conversion < ActiveRecord::Base
     scope :processing, -> {where(status: :processing)}
     scope :completed, -> {where(status: :completed)}
     scope :failed, -> {where(status: :failed)}
+    
+    before_destroy :destroy_related_files
     
     def self.find_by_key key
         k = Key.where(keystring: key)
@@ -43,5 +46,19 @@ class Conversion < ActiveRecord::Base
     
     def status
         read_attribute(:status).try(:to_sym)
+    end
+    
+    private
+    
+    def destroy_related_files
+        remove_original_file!
+        FileUtils.rm_r("#{Rails.root}/public/uploads/conversion/original_file/#{key.to_s}")
+        if zippath
+            FileUtils.rm(zippath)
+        end
+        # Just in case it is from before it all worked correctly
+        if File.exists?("#{Rails.root}/public/conversions/#{key.to_s}")
+            FileUtils.rm_r("#{Rails.root}/public/conversions/#{key.to_s}")
+        end
     end
 end
