@@ -58,7 +58,6 @@ Rails.application.routes.draw do
   root :to => "main#welcome"
   
   post "/conversion", :to => "main#conversion"
+  get "/stats", :to => "main#stats"
   get "/:key", :to => "keys#show", :as => :key
-  post "/:key", :to => "keys#update", :as => :update_key
-  get "/blank", :to => "main#blank"
 end

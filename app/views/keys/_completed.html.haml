@@ -1,0 +1,12 @@
+= content_for :summary do
+  %p Your file has been converted successfully. You can download the ZIP package below or save the link to download it later. The package will stay on the server for 7 days, then it will be automatically deleted.
+%h1.success Conversion successful!
+.downloadbutton
+  = button_to "Download the ZIP package", obj.zipurl(current_hostname), method: :get
+.convkey
+  Unique conversion key:
+  = obj.key.to_s
+.link
+  = link_to "Save this link to download the package later", key_path(obj.key.to_s)
+= content_for :additional do
+  %p If you want to build such conversion into your own Rails application, check out the rff Ruby gem this converter is based on!

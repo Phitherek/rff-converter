@@ -21,4 +21,13 @@ class MainController < ApplicationController
         end
         ConversionWorker.perform_async(@conv.key.to_s)
     end
+    
+    def stats
+        respond_to do |format|
+            format.json do
+               load_stats
+               render :json => [@processing_count, @available_disk_space].to_json 
+            end
+        end
+    end
 end

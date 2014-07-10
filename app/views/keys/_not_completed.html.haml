@@ -1,0 +1,8 @@
+= content_for :summary do
+  %p Your conversion has not completed. This can mean two things - either it is still running and you have to wait until it finishes or there was a bug with your particular file and RFF Converter engine crashed not changing the status of this conversion. In second case (if the success or failure page does not appear for a very long time) please e-mail the below conversion key to phitherek [at] gmail [dot] com and I will try to inspect that.
+%h1.not_completed Conversion not completed...
+.convkey
+  Unique conversion key:
+  = obj.key.to_s
+= content_for :additional do
+  %p Sorry for any inconvenience. Your feedback can make the rff Ruby gem and RFF Converter better!

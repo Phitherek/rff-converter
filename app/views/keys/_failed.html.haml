@@ -1,0 +1,8 @@
+= content_for :summary do
+  %p Sorry, your conversion has failed. This can be either bug in rff Ruby gem or FFmpeg itself. If it is a bug with rff I can probably diagnose and fix it. Please send an e-mail to phitherek [at] gmail [dot] com with the conversion key below.
+%h1.failed Something went wrong :(
+.convkey
+  Unique conversion key:
+  = obj.key.to_s
+= content_for :additional do
+  %p Sorry for any inconvenience. Your feedback can make the rff Ruby gem and RFF Converter better!

@@ -1,2 +1,6 @@
-%h1 Keys#show
-%p Find me in app/views/keys/show.html.haml
+- if @obj.status == :completed
+  = render :partial => "completed", :locals => {obj: @obj}
+- elsif @obj.status == :new || @obj.status == :processing
+  = render :partial => "not_completed", :locals => {obj: @obj}
+- else
+  = render :partial => "failed", :locals => {obj: @obj}
