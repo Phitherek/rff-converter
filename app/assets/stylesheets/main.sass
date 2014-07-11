@@ -105,7 +105,7 @@ input[type=submit]
   font-family: $default-font-stack
   font-size: 18px
   background-color: rgba(#fff, 0)
-  +transition(all, 0.5s, ease-in-out, 0)
+  +transition(all, 0.3s, ease-in-out, 0)
 input[type=submit]:hover
   background-color: rgba(#fff, 0.5)
   +transform(scale(1.2, 1.2))
@@ -118,17 +118,25 @@ input[type=file]
   font-family: $default-font-stack
   font-size: 16px
   background-color: rgba(#fff, 0)
-input[type=file] button
-  font-family: $default-font-stack
-  font-size: 16px
-  background-color: rgba(#fff, 0)
 a
   text-decoration: none
   color: #ff0000
-  +transition(all, 0.5s, ease-in-out, 0)
+  +transition(all, 0.3s, ease-in-out, 0)
 a:visited
   color: #cc0000
 a:hover
   color: #0000ff
 a:active
   color: #0000cc
+.flashes
+  div
+    text-align: center
+    color: #ffffff
+    font-size: 18px
+    font-weight: bold
+    border-radius: 5px
+    padding-left: 7px
+  .notice
+    background-color: #0000cc
+  .error
+    background-color: #cc0000

@@ -15,8 +15,7 @@ class MainController < ApplicationController
         @conv.percentage = 0
         if !@conv.save
             @conv.key.destroy
-            puts @conv.errors.to_yaml
-            flash[:error] = "Conversion could not be started, probably because of wrong form data. Please try again."
+            flash[:error] = "Conversion could not be started: #{@conv.errors.messages.to_s}. Please try again."
             redirect_to root_path
         end
         ConversionWorker.perform_async(@conv.key.to_s)

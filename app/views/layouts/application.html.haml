@@ -8,6 +8,11 @@
   %body
     .header
       = image_tag "rff-converter-logo.png"
+    .flashes
+      .notice
+        = flash[:notice]
+      .error
+        = flash[:error]
     .summary
       = yield :summary
     .formbox
