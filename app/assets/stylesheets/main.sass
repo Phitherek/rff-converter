@@ -24,8 +24,8 @@
   -o-transform: $type
   transform: $type
 =transition($property, $time, $function, $delay)
-  -webkit-transition: $property $time $function $delay
   -moz-transition: $property $time $function $delay
+  -webkit-transition: $property $time $function $delay
   -o-transition: $property $time $function $delay
   transition: $property $time $function $delay
   
@@ -105,7 +105,7 @@ input[type=submit]
   font-family: $default-font-stack
   font-size: 18px
   background-color: rgba(#fff, 0)
-  +transition(all, 0.3s, ease-in-out, 0)
+  +transition(all, 0.3s, ease-in-out, 0s)
 input[type=submit]:hover
   background-color: rgba(#fff, 0.5)
   +transform(scale(1.2, 1.2))
@@ -121,7 +121,7 @@ input[type=file]
 a
   text-decoration: none
   color: #ff0000
-  +transition(all, 0.3s, ease-in-out, 0)
+  +transition(all, 0.3s, ease-in-out, 0s)
 a:visited
   color: #cc0000
 a:hover
