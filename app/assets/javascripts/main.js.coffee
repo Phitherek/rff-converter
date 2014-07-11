@@ -19,7 +19,7 @@ afterconversion_submit = =>
 
 update_conversion_status = =>
     $.get(["/", @current_key, ".json"].join(""), (data) =>
-        if data[0] == "processing"
+        if data[0] == "processing" || data[0] == "new"
             $(".conversion.pbcontainer .bar").css("width", data[1] + "%")
             $(".conversion.pbcontainer .progress_percentage").html(data[1] + "%")
         else

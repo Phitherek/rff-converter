@@ -10,20 +10,54 @@
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($startcol), to($endcol))
   background-image: -moz-linear-gradient(0% 0% 270deg,$startcol, $endcol)
   background-image: linear-gradient(to bottom, $startcol, $endcol)
+=vert-lgradient-three($startcol, $midcol, $endcol)
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($startcol), to($endcol), color-stop(.5,$midcol))
+  background-image: -moz-linear-gradient(0% 100% 90deg,$startcol, $midcol, $endcol 100%)
+  background-image: linear-gradient(to bottom, $startcol, $midcol, $endcol)
 =width-transition($time)
   -moz-transition: width $time ease
   -o-transition: width $time ease
   -webkit-transition: width $time ease
   transition: width $time ease
+=transform($type)
+  -webkit-transform: $type
+  -o-transform: $type
+  transform: $type
+=transition($property, $time, $function, $delay)
+  -webkit-transition: $property $time $function $delay
+  -moz-transition: $property $time $function $delay
+  -o-transition: $property $time $function $delay
+  transition: $property $time $function $delay
+  
+@import url(http://fonts.googleapis.com/css?family=Varela+Round)
 
+$default-font-stack: 'Varela Round', sans-serif
+
+html
+  min-height: 100%
+body
+  +vert-lgradient-three(#FFC9C9,#FFFFFF,#C9C9FF)
+  background-repeat: no-repeat
+  font-family: $default-font-stack
+  font-size: 16px
+h1
+  margin: 25px 0px
 .header
   text-align: center
 .footer
   border-top: solid 1px #cccccc
   text-align: center
+  font-size: 12px
 .formbox
   text-align: center
   border: solid 3px #000000
+  margin: 25px 0px
+.formbox div:last-child
+  margin-bottom: 25px
+.formrow
+  margin: 5px 0px
+.formrow:last-child
+  margin: 25px 0px
 .progress
   height: 20px
   width: 70%
@@ -37,8 +71,64 @@
 .progress_percentage
   float: left
   padding-top: 2px
+  margin-left: 5px
 .pbcontainer
   overflow: hidden
 .pbcontainer.conversion
   position: relative
   left: 15%
+.stats
+  text-align: center
+  border-top: solid 1px #cccccc
+  font-size: 15px
+  margin-top: 25px
+.line
+  margin: 5px 0px
+.link
+  font-size: 18px
+  margin: 5px 0px
+p
+  margin: 5px 0px
+.upload_message
+  font-size: 20px
+  margin-bottom: 25px
+.not_completed
+  color: #dddd00
+.success
+  color: #00dd00
+.failed
+  color: #dd0000
+.convkey
+  font-size: 18px
+input[type=submit]
+  border: solid 2px #000000
+  font-family: $default-font-stack
+  font-size: 18px
+  background-color: rgba(#fff, 0)
+  +transition(all, 0.5s, ease-in-out, 0)
+input[type=submit]:hover
+  background-color: rgba(#fff, 0.5)
+  +transform(scale(1.2, 1.2))
+select
+  border: solid 2px #000000
+  font-family: $default-font-stack
+  font-size: 16px
+  background-color: rgba(#fff, 0)
+input[type=file]
+  font-family: $default-font-stack
+  font-size: 16px
+  background-color: rgba(#fff, 0)
+input[type=file] button
+  font-family: $default-font-stack
+  font-size: 16px
+  background-color: rgba(#fff, 0)
+a
+  text-decoration: none
+  color: #ff0000
+  +transition(all, 0.5s, ease-in-out, 0)
+a:visited
+  color: #cc0000
+a:hover
+  color: #0000ff
+a:active
+  color: #0000cc

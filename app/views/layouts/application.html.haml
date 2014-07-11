@@ -18,11 +18,11 @@
       %p
         Currently processing:
         %span#processing_count= @processing_count
-        conversion(s). Too many conversions at once can kill the server. If there is a few currently processing please consider running your conversion later.
+        conversion(s). Too many conversions at once can kill the server. If there are a few currently processing please consider running your conversion later.
       %p
         Available disk space: 
         %span#available_disk_space= @available_disk_space
-        GB. Your conversion will not complete if there is not enough disk space. Old conversions are removed from server after 7 days, please check back if there is not enough disk space now.
+        GB. Your conversion will not complete if there is not enough disk space. Old conversions are removed from server after 7 days (cleanup process runs every 10 minutes), please check back later if there is not enough disk space now.
     .footer
       .line
         RFF Converter &copy; 2014 by Phitherek_

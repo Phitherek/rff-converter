@@ -3,5 +3,5 @@
 %h1#form_title Please wait, conversion in progress...
 = render partial: "main/progressbar", locals: {barclass: "conversion"}
 = content_for :additional do
-  %p NOTICE: As FFmpeg does not provide percentage information, the percentage is calculated by rff Ruby gem based on duration of input file and current time position from status. If either is missing or not available the percentage displayed and the progress bar will not be accurate but that does NOT necessarily mean that the conversion process hung or died. Please be patient as the conversion proces might last a long time.
+  %p NOTICE: As FFmpeg does not provide percentage information, the percentage is calculated by rff Ruby gem based on the duration of input file and current time position from conversion status information. If either is missing or not available the percentage displayed and the progress bar will not be accurate but that does NOT necessarily mean that the conversion process hung or died. Please be patient as the conversion process might take a long time to complete.
   = form_tag(key_path(@conv.key.to_s), id: :afterconversion_form, data: {key: @conv.key.to_s}, method: :get)
