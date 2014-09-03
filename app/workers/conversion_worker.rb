@@ -57,6 +57,7 @@ class ConversionWorker
                     @conv.zippath = "#{Rails.root}/public/conversions/#{key}.zip"
                 end
                 @conv.save!
+                FileUtils.chmod(0755, @conv.zippath)
                 FileUtils.rm_r("#{Rails.root}/public/conversions/#{key}/")
             else
                 @conv.status = :failed
