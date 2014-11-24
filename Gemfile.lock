@@ -102,7 +102,7 @@ GEM
     redis-namespace (1.5.0)
       redis (~> 3.0, >= 3.0.4)
     ref (1.0.5)
-    rff (0.2.8)
+    rff (0.2.9)
     rubyzip (1.1.6)
     sass (3.2.19)
     sass-rails (4.0.3)
